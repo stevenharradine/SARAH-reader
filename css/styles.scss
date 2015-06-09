@@ -1,0 +1,104 @@
+img {
+	max-width: 100%;
+}
+
+article {
+	margin: 5px 20px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid grey;
+	background-color: white;
+
+	&.new {
+		background-color: lightgrey;
+		border: 1px solid black;
+	}
+
+	&.closed .description {
+		display:none;
+	}
+
+	.description, .description p {
+		margin-top: 10px;
+	}
+
+	h2 {
+		cursor: pointer;
+		width: calc(100% - 25px);
+		float: left;
+		font-size: 1.5em;
+		margin-bottom: 0;
+	}
+}
+
+.favorite {
+	float: right;
+	width: 25px;
+	color: black;
+}
+.favorite.active {
+	font-weight: bold;
+}
+.favorite.active .icon-star:before {
+	content:"\E808";
+}
+select#choose-label {
+	border: 0;
+	color: black;
+	background-color: white;
+	height: 30px;
+	border-radius: 10px;
+	float: right;
+
+	/*appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #000 url('../../../images/icons/downarrow.png') no-repeat;
+	background-position: bottom right;*/
+}
+select#choose-label::after {
+	border: 1px solid red !important;
+}
+select#choose-label {
+	margin: 0 10px 0 0;
+}
+div.toolbar {
+	position: fixed;
+	top: 60px;
+	right: 0;
+	border-bottom-left-radius: 10px;
+	background-color: black;
+	padding: 10px;
+	
+	-webkit-box-shadow:  0px 5px 5px 0px rgba(0, 0, 0, .5);
+	box-shadow:  0px 5px 5px 0px rgba(0, 0, 0, .5);
+}
+div.toolbar a.mark-as-read {
+	padding: 5px;
+	margin: 0;
+	text-decoration: none;
+	margin-top: 1px;
+}
+div.toolbar a.mark-as-read:hover {
+	background: grey;
+	color: #ccc;
+}
+
+div.content, div[data-role='content'] {
+	margin-top: 120px;
+}
+
+form.search {
+	margin-bottom: 25px;
+}
+
+header a.button {
+	margin-right: 10px;
+}
+
+header a.button:nth-child(2) {
+	margin-right: 0;
+}
+.no-articles {
+	text-align: center;
+}
