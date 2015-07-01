@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  sudo: true
+  remote_user: douglas
+  - name: reader | cron
+    sudo_user: www-data
+    cron:
+      name: "Reader updater"
+      special_time: reboot
+      job: "cd /etc/SARAH/www/apps/SARAH-reader/updater/ &&  bash run.sh"
