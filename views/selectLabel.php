@@ -24,6 +24,7 @@
 	<select id="choose-label">
 		<option>All</option>
 		<option value="favorite" $selectedAttribute>Favorites</option>
+		<option value="reload">Reload</option>
 		<option disabled="disabled">------</option>
 		$optionList
 	</select>

@@ -31,7 +31,10 @@ require (['../../js/jquery-1.6.2.min'], function ($) {
 		jQuery ("#choose-label").bind ("change", function (e) {
 			selected_label = jQuery(this).val();
 
-			location.href = selected_label == "favorite" ? "index.php?showFavorites=1" : "index.php?label=" + selected_label;
+			if (selected_label != "reload")
+				location.href = selected_label == "favorite" ? "index.php?showFavorites=1" : "index.php?label=" + selected_label;
+			else
+				location.href = location.href;
 		});
 		
 		jQuery ("article a.favorite").bind ("click", function (e) {
