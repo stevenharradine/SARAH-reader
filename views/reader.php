@@ -5,14 +5,14 @@
 		public function render ($data) {
 			$output = '';
 
-			if (mysql_num_rows( $data ) > 0) {
-				while (($row = mysql_fetch_array( $data )) != null) {
-					$ITEM_ID = $row['ITEM_ID'];
-					$viewed = $row['viewed'];
-					$favorite = $row['favorite'];
-					$title = $row['title'];
-					$newClass = $row['viewed'] == 0 ? 'new' : '';
-					$favoritedClass = $row['favorite'] == 1 ? 'active' : '';
+			if (count( $data ) > 0) {
+				for ($i = 0; $i < count ($data); $i++) {// (($row = mysql_fetch_array( $data )) != null) {
+					$ITEM_ID = $data[$i]['ITEM_ID'];
+					$viewed = $data[$i]['viewed'];
+					$favorite = $data[$i]['favorite'];
+					$title = $data[$i]['title'];
+					$newClass = $data[$i]['viewed'] == 0 ? 'new' : '';
+					$favoritedClass = $data[$i]['favorite'] == 1 ? 'active' : '';
 					$favoriteIcon = IconView::render( new IconModel ('star', 'Fav'));
 
 					$output .= <<<EOD

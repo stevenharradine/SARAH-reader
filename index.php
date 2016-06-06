@@ -21,7 +21,7 @@
 			'feed_labels_data' => ReaderManager::getLabels(),	// all labels
 			'label' => $label,									// the selected label
 			'showFavorites' => $showFavorites					// is the favorite option selected
-		)) . (mysql_num_rows($allArticles) > 0 ? MarkAllReadView::render( array (
+		)) . (count ($allArticles) > 0 ? MarkAllReadView::render( array (
 			'showFavorites' => $showFavorites,					// is the favorite option selected
 			'label' => $label									// the selected label
 		)) : '') . ButtonView::render ( new ButtonModel(

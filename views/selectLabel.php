@@ -9,11 +9,12 @@
 */
 	class SelectLabelView extends View {
 		public function render ($data) {
+			global $link;
 			$selectedAttribute = $data['showFavorites'] ? ' selected="selected"' : '';
 
 			$optionList = '';
-			while ( ( $row = mysql_fetch_array ( $data['feed_labels_data'] ) ) != null ) {
-				$label = $row['label'];
+			for ($i = 0; $i < count($data['feed_labels_data']); $i++) {
+				$label = $data['feed_labels_data'][$i];
 
 				$count = ReaderManager::getCount($label);
 				
