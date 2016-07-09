@@ -10,7 +10,7 @@
         state: latest
         update_cache: yes
       with_items:
-        - openjdk-7-jdk
+        - openjdk-9-jdk
 
     - name: reader | cron
       sudo_user: www-data
