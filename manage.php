@@ -24,7 +24,7 @@
 
 		$feedTableModel = new TableModel ('Feeds');
 
-		while (($feed_row = mysql_fetch_array( $feed_data )) != null) {
+		while (($feed_row = mysqli_fetch_array( $feed_data )) != null) {
 			$feedTableModel->addRow ( array (
 				TableView2::createCell ('name', $feed_row['name']),
 				TableView2::createCell ('label', $feed_row['label']),
