@@ -10,11 +10,11 @@
         state: latest
         update_cache: yes
       with_items:
-        - openjdk-7-jdk
+        - openjdk-9-jdk
 
     - name: reader | cron
       sudo_user: www-data
       cron:
         name: "Reader updater"
         special_time: reboot
-        job: "cd /etc/SARAH/www/apps/SARAH-reader/updater/ &&  bash run.sh"
+        job: "cd /etc/SARAH/www/apps/Reader/updater/ &&  bash run.sh"
