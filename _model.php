@@ -113,6 +113,7 @@ EOD;
 		}
 
 		public function getArticlesBySearch ($query, $label=null) {
+			$link = ReaderManager::get_link();
 			$USER_ID = $_SESSION['USER_ID'];
 
 			$favoriteClause = ' AND `favorite` = \'1\'';
@@ -139,9 +140,21 @@ EOD;
 		`posted` DESC
 EOD;
 			
-			$data = mysql_query( $sql ) or die(mysql_error());
+			$data = $link->query( $sql );
+			$returnset = array ();
 
-			return $data;
+			while (($row = mysqli_fetch_array( $data )) != null) {
+				$element = array (
+					'ITEM_ID' => $row['ITEM_ID'],
+					'viewed' => $row['viewed'],
+					'favorite' => $row['favorite'],
+					'title' => $row['title'],
+					'favorite' => $row['favorite'],
+				);
+				array_push ($returnset, $element);
+			}
+
+			return $returnset;
 		}
 
 		public function getLabels () {
